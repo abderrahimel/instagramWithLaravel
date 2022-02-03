@@ -24,8 +24,10 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                    <div><img src="/svg/freeCodeCampLogo.svg" style="height: 20px; border-right: 1px solid #333;" class="pr-3"></div>
-                    <div class="pl-3">freeCodeGram</div>
+                    <div><img src="/svg/instagram-logo.png" style="height: 20px; border-right: 1px solid #333;" class="pr-3"></div>
+                    <div class="pl-3">
+                       <img src="/svg/instagramLogo.jpeg"  style="height: 60px;">
+                    </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -51,11 +53,29 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->username }} <span class="caret"></span>
+                                <a id="navbarDropdown" class="d-flex nav-link p-10" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <img src="{{ asset(Auth::user()->profile->profileImage())}}" class="rounded-circle w-100" style="height:30px;">
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/profile/{{ Auth::user()->id }}" >
+
+                                        {{ __('Profile') }}
+                                    </a>
+                                    <a class="dropdown-item" href="#" >
+
+                                        {{ __('Enregistre') }}
+                                    </a>
+                                    <a class="dropdown-item" href="#" >
+
+                                        {{ __('Parametres') }}
+                                    </a>
+                                    <a class="dropdown-item" href="#" >
+
+                                        {{ __('Changer de compte') }}
+                                    </a>
+                                    <hr/>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -65,7 +85,9 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
                                 </div>
+
                             </li>
                         @endguest
                     </ul>
