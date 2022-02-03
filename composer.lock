@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "40ad082a5e01acf1f174da392a8945c2",
+    "content-hash": "32951af48b5fa4476f4b594bd9817676",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -5177,12 +5177,12 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "DeepCopy\\": "src/DeepCopy/"
-                },
                 "files": [
                     "src/DeepCopy/deep_copy.php"
-                ]
+                ],
+                "psr-4": {
+                    "DeepCopy\\": "src/DeepCopy/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -6783,7 +6783,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2.0"
+        "php": "^7.2.0",
+        "ext-pdo_sqlite": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"
